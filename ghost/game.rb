@@ -7,8 +7,17 @@ class Game
         @current_player = @player_1
     end
 
-    def valid_play?(str)
-
+    def valid_play?(letter)
+        alphabet = "abcdefghijklmnopqrstuvwxyz"
+        if alphabet.include?(letter) && letter.length == 1
+            @fragment += letter
+            if @dictionary.include?(@fragment)
+                return true
+            else 
+                return false
+            end
+        end
+        false
     end
 
     def next_player!
